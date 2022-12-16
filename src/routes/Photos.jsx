@@ -10,8 +10,8 @@ const Photos = () => {
   const [submited, setSubmited] = useState("");
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [refresh, setRefresh] = useState(false);
+  const [error] = useState(null);
+  const [refresh] = useState(false);
 
   const deletePhoto = async (id) => {
     await fetch(`${domain}/photos/${id}`, {
@@ -35,7 +35,7 @@ const Photos = () => {
           setLoading(false);
         });
     }
-  }, [sort, search]);
+  }, [sort, search, submited]);
 
   useEffect(() => {
     setLoading(true);
